@@ -1,0 +1,249 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: none;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #11151C;
+  z-index: 20;
+  overflow: hidden;
+}
+.loader marquee {
+  opacity: 0.2;
+  text-transform: uppercase;
+  line-height: 180px;
+  margin: 0;
+  padding: 0;
+  color: #55bc93;
+  font-size: 200px;
+  font-family: "Cinzel";
+}
+
+.loader .intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.loader .intro h1 {
+  font-size: 124px;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: #fff;
+  font-family: "Cinzel";
+}
+
+.intro-title .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  height: 15vh;
+  padding: 3vh 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.scroll-horizontal {
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+  background: #11151C;
+  overflow: hidden;
+}
+
+.titlle {
+  position: absolute;
+  padding: 170px 0 0 745px;
+}
+.titlle::before {
+  content: "";
+  position: absolute;
+  background-color: #55bc93;
+  width: 180px;
+  height: 2px;
+  left: 76.5%;
+  bottom: -15px;
+}
+.titlle h1 {
+  position: relative;
+  color: #fff;
+  font-family: "Cinzel";
+  text-transform: uppercase;
+  font-size: 35px;
+}
+
+.block img {
+  position: relative;
+  width: 900px;
+  height: 460px;
+  margin: 10px 280px 20px 80px;
+}
+
+.container-scroll {
+  margin-top: 300px;
+  margin-left: 200px;
+}
+
+.scroll {
+  position: relative;
+  top: 55%;
+  left: 5%;
+  display: block;
+  font-size: 0.933rem;
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px 10px 40px;
+}
+.scroll::before {
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 24px;
+  height: 40px;
+  border: 2px solid #55bc93;
+  border-radius: 12px;
+  content: "";
+}
+.scroll::after {
+  display: block;
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  width: 2px;
+  height: 8px;
+  background: #fff;
+  border-radius: 1px;
+  content: "";
+  animation-name: scroll;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    height: 8px;
+  }
+  20% {
+    opacity: 1;
+    height: 8px;
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+    height: 19px;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(19px);
+    opacity: 0;
+    height: 0;
+  }
+  81% {
+    transform: translateY(0);
+    opacity: 0;
+    height: 8px;
+  }
+  100% {
+    opacity: 1;
+    height: 8px;
+  }
+}
+
+.cursor {
+    position: absolute;
+    background: #55bc93;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    z-index: 1;
+    transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+        0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
+.cursor::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background-image: url("circle-png1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+    opacity: 0;
+}
+
+.cursor.active {
+    opacity: 1;
+    transform: scale(12);
+}
+
+.cursor.active::before {
+    opacity: 1;
+}
+.cursor-follower {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    z-index: 1;
+    transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+        0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    transform: translate(4px, 4px);
+}
+
+.cursor-follower.active {
+    opacity: 0.3;
+    transform: scale(0);
+}
+
+.block {
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+}
+.block img {
+  opacity: 0.8;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+  transform-origin: 90% center;
+}
+.block:hover .block {
+  transform: translateX(-1.75rem);
+}
+.block:hover .block img {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+/*# sourceMappingURL=style.css.map */
